@@ -157,8 +157,8 @@ class GMockOutputTest(gmock_test_utils.TestCase):
 
   def testOutput(self):
     (output, leaky_tests) = GetNormalizedCommandOutputAndLeakyTests(COMMAND)
-    golden_file = open(GOLDEN_PATH, 'rb')
-    golden = golden_file.read().decode('utf-8')
+    golden_file = open(GOLDEN_PATH, encoding='utf-8')
+    golden = golden_file.read()
     golden_file.close()
 
     # The normalized output should match the golden file.
