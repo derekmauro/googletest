@@ -42,6 +42,7 @@ gmock_output_test.py
 from io import open    # pylint: disable=redefined-builtin, g-importing-member
 import os
 import re
+import subprocess
 import sys
 from googlemock.test import gmock_test_utils
 
@@ -137,7 +138,7 @@ def GetNormalizedOutputAndLeakyTests(output):
 def GetShellCommandOutput(cmd):
   """Runs a command in a sub-process, and returns its STDOUT in a string."""
 
-  return gmock_test_utils.Subprocess(cmd, capture_stderr=False).output
+  return subprocess.run(cmd, capture_output=True, encoding='utf-8').stdout
 
 
 def GetNormalizedCommandOutputAndLeakyTests(cmd):
