@@ -174,7 +174,7 @@ class GMockOutputTest(gmock_test_utils.TestCase):
 if __name__ == '__main__':
   if sys.argv[1:] == [GENGOLDEN_FLAG]:
     (output, _) = GetNormalizedCommandOutputAndLeakyTests(COMMAND)
-    golden_file = open(GOLDEN_PATH, 'wb')
+    golden_file = open(GOLDEN_PATH, 'w', newline='\n')
     golden_file.write(output)
     golden_file.close()
     # Suppress the error "googletest was imported but a call to its main()
